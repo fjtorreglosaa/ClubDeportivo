@@ -26,8 +26,14 @@ public class clsJugador extends clsPersona
 
     @Override
     public void CrearEntidad() {
-        // TODO Auto-generated method stub
+        //TODO: Auto-generated method stub
         
+    }
+
+    public void AddLesion(clsLesion lesion){
+        //TODO: Crear un JOption pane que agregue las propiedades de las lesiones
+        
+        lesiones.add(lesion);
     }
 
     public int getTarjetasRojas() {
