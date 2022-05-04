@@ -2,11 +2,20 @@ package Entidades;
 
 public class clsLesion 
 {
+    private static int idGeneral = 0;
     private int id;
     private String Nombre;
     private int diasIncapacidad;
     private String severidad;
-    
+
+    public clsLesion() {
+        idGeneral++;
+    }
+
+    public static int getIdGeneral() {
+        return idGeneral;
+    }
+
     public int getId() {
         return id;
     }
