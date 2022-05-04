@@ -1,5 +1,6 @@
 package Entidades.Jugador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -14,14 +15,23 @@ public class clsJugador extends clsPersona
     private int faltas;
     private int tarjetasAmarillas;
     private int tarjetasRojas;
-    private List<clsLesion> lesiones;
+    private int cantidadLesiones;
+    private List<clsLesion> lesiones = new ArrayList<>();
     public int minutosDeJuego;
     private int disparosAPuerta;
-
-    public clsJugador(int id, String nombre, String apellido, int edad, float salario) {
-        super(id, nombre, apellido, edad, salario);
-    }
     
+    public clsJugador() {
+        super();
+        while (true){
+            try {
+                cantidadLesiones = Integer.parseInt(JOptionPane.showInputDialog("Escriba el número de lesiones que ha tenido el jugador:"));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "El valor ingresado no corresponde a un número. Escribalo nuevamente");
+            }
+            break;
+        }
+    }
+
     public int getDisparosAPuerta() {
         return disparosAPuerta;
     }
@@ -42,23 +52,29 @@ public class clsJugador extends clsPersona
         
     }
 
-    public void AddLesion(clsLesion lesion){
+    private void AddLesion(clsLesion lesion){
 
         while (true){
             try {
-                String nombreLesion = JOptionPane.showInputDialog("Type your name please");
-                int diasIncapacidadLesion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id de la lesión:"));
-                String severidadLesion = JOptionPane.showInputDialog("Type your name please");
+                String nombreLesion = JOptionPane.showInputDialog("Escriba el nombre de la lesión:");
+                int diasIncapacidadLesion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese los dias de incapacidad de la lesión:"));
+                String severidadLesion = JOptionPane.showInputDialog("Escriba la severidad de la lesión:");
                 lesion.setNombre(nombreLesion);
-                lesion.setId(diasIncapacidadLesion);
-                lesion.setNombre(severidadLesion);
+                lesion.setDiasIncapacidad(diasIncapacidadLesion);
+                lesion.setSeveridad(severidadLesion);
+                lesiones.add(lesion);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR: Ingrese nuevamente los datos de la lesión.");
             }
             break;   
         }
+    }
 
-        lesiones.add(lesion);
+    public void AddLesiones(){
+        for (int i = 0; i < cantidadLesiones; i++) {
+            JOptionPane.showMessageDialog(null, "INFORMACIÓN: Ingrese la lesión" + i+1);
+            AddLesion(new clsLesion());
+        }
     }
 
     public int getTarjetasRojas() {

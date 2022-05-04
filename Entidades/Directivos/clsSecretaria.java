@@ -1,5 +1,6 @@
 package Entidades.Directivos;
 
-public class clsSecretaria {
+public class clsSecretaria extends clsDirectivo {
+
     
 }

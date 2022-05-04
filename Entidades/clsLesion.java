@@ -10,6 +10,7 @@ public class clsLesion
 
     public clsLesion() {
         idGeneral++;
+        id=idGeneral;
     }
 
     public static int getIdGeneral() {
