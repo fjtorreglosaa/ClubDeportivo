@@ -20,10 +20,10 @@ public abstract class clsPersona
                 apellido = JOptionPane.showInputDialog("Escriba el apellido de la persona:");
                 edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad de la persona:"));
                 salario = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el salario de la persona:"));
+                break;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR: Ingrese nuevamente los datos de la persona.");
             }
-            break;
         }
     }
 

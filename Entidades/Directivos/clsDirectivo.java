@@ -6,9 +6,18 @@ public class clsDirectivo extends clsPersona{
 
     private String permisos;
     private String funciones;
+    private clsSecretaria secretaria;
 
     public String getPermisos() {
         return permisos;
+    }
+
+    public clsSecretaria getSecretaria() {
+        return secretaria;
+    }
+
+    public void setSecretaria(clsSecretaria secretaria) {
+        this.secretaria = secretaria;
     }
 
     public void setPermisos(String permisos) {
